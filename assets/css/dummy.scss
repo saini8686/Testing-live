@@ -1,0 +1,294 @@
+/* Variables and Mixins */
+$color-black: #222222;
+$color-blue: #00BCd4;
+$color-green: #8BC34A;
+$color-lgray: #F6F6F6;
+$color-purple: #9C27B0;
+$color-red: #E91E63;
+$color-yellow: #FFC107;
+$color-white: #FFFFFF;
+
+$shape-size: 70px;
+$shape-box: calc(#{$shape-size} + 100px);
+$shape-duration: 4s;
+
+@mixin flex-center {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+
+@mixin top-left {
+    border-radius: 50% 50% 0 50%;
+    left: 0;
+    top: 0;
+}
+
+@mixin top-right {
+    border-radius: 50% 50% 50% 0;
+    left: 100px;
+    top: 0;
+}
+
+@mixin bottom-right {
+    border-radius: 0 50% 50% 50%;
+    left: 100px;
+    top: 100px;
+}
+
+@mixin bottom-left {
+    border-radius: 50% 0 50% 50%;
+    left: 0;
+    top: 100px;
+}
+
+/* Container */
+#container {
+    background-color: $color-lgray;
+    height: 100vh;
+    width: 100vw;
+    @include flex-center;
+}
+
+/* Shapes */
+.shapes {
+    animation-duration: 5000ms;
+    animation-iteration-count: infinite;
+    height: $shape-box;
+    margin: 0 (calc(#{$shape-size} * 0.7));
+    position: relative;
+    transform-origin: center center;
+    width: $shape-box;
+
+    //
+    &-spin {
+        &-1 {
+            animation-name: shape-rotate-1;
+            animation-direction: alternate;
+            animation-delay: 0s;
+        }
+
+        &-2 {
+            animation-name: shape-rotate-2;
+            animation-direction: alternate-reverse;
+            animation-delay: .25s;
+        }
+
+        &-3 {
+            animation-name: shape-rotate-3;
+            animation-direction: alternate-reverse;
+            animation-delay: 0.5s;
+        }
+    }
+
+    //
+    .shapes__item {
+        animation-duration: $shape-duration;
+        animation-iteration-count: infinite;
+        // animation-name: shape-color; /* TODO */
+        height: $shape-size;
+        position: absolute;
+        width: $shape-size;
+
+        //
+        &-1 {
+            animation-name: item-1;
+        }
+
+        // Top Left
+        &-2 {
+            animation-name: item-2;
+        }
+
+        // Top Right
+        &-3 {
+            animation-name: item-3;
+        }
+
+        // Bottom Right
+        &-4 {
+            animation-name: item-4;
+        }
+
+        // Bottom Left
+    }
+}
+
+
+/* Shape Spin */
+@keyframes shape-rotate-1 {
+
+    0%,
+    100% {
+        transform: rotate(0deg);
+    }
+
+    25% {
+        transform: rotate(180deg);
+    }
+
+    50% {
+        transform: rotate(30deg);
+    }
+
+    75% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes shape-rotate-2 {
+
+    0%,
+    100% {
+        transform: rotate(0deg);
+    }
+
+    25% {
+        transform: rotate(180deg);
+    }
+
+    50% {
+        transform: rotate(30deg);
+    }
+
+    75% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes shape-rotate-3 {
+
+    0%,
+    100% {
+        transform: rotate(0deg);
+    }
+
+    25% {
+        transform: rotate(180deg);
+    }
+
+    50% {
+        transform: rotate(30deg);
+    }
+
+    75% {
+        transform: rotate(360deg);
+    }
+}
+
+
+/* Shape Animation */
+@keyframes item-1 {
+
+    /* Top Left */
+    0%,
+    100% {
+        background-color: $color-red;
+        @include top-left;
+    }
+
+    /* Top Right */
+    25% {
+        background-color: $color-blue;
+        @include top-right;
+    }
+
+    /* Bottom Right */
+    50% {
+        background-color: $color-green;
+        @include bottom-right;
+    }
+
+    /* Bottom Left */
+    75% {
+        background-color: $color-yellow;
+        @include bottom-left;
+    }
+}
+
+@keyframes item-2 {
+
+    /* Top Right */
+    0%,
+    100% {
+        background-color: $color-red;
+        @include top-right;
+    }
+
+    /* Bottom Right */
+    25% {
+        background-color: $color-blue;
+        @include bottom-right;
+    }
+
+    /* Bottom Left */
+    50% {
+        background-color: $color-green;
+        @include bottom-left;
+    }
+
+    /* Top Left */
+    75% {
+        background-color: $color-yellow;
+        @include top-left;
+    }
+}
+
+@keyframes item-3 {
+
+    /* Bottom Right */
+    0%,
+    100% {
+        background-color: $color-red;
+        @include bottom-right;
+    }
+
+    /* Bottom Left */
+    25% {
+        background-color: $color-blue;
+        @include bottom-left;
+    }
+
+    /* Top Left */
+    50% {
+        background-color: $color-green;
+        @include top-left;
+    }
+
+    /* Top Right */
+    75% {
+        background-color: $color-yellow;
+        @include top-right;
+    }
+}
+
+@keyframes item-4 {
+
+    /* Bottom Left */
+    0%,
+    100% {
+        background-color: $color-red;
+        @include bottom-left;
+    }
+
+    /* Top Left */
+    25% {
+        background-color: $color-blue;
+        @include top-left;
+    }
+
+    /* Top Right */
+    50% {
+        background-color: $color-green;
+        @include top-right;
+    }
+
+    /* Bottom Right */
+    75% {
+        background-color: $color-yellow;
+        @include bottom-right;
+    }
+}
+
+
+
