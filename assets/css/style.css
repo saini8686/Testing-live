@@ -4517,13 +4517,13 @@ button {
     overflow: hidden;
 }
 
-.container {
+.containers {
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.container .box {
+.containers .box {
     transform-style: preserve-3d;
     animation: animate 25s linear infinite;
 }
@@ -4538,7 +4538,7 @@ button {
     }
 }
 
-.container .box span {
+.containers .box span {
     position: absolute;
     color: #fff;
     font-size: 3.5em;
@@ -4556,17 +4556,17 @@ button {
     transform: translate(-50%, -50%) rotateX(calc(var(--i) * 22.5deg)) translateZ(106px);
 }
 
-.container .box span i:nth-child(1) {
+.containers .box span i:nth-child(1) {
     font-style: initial;
     color: #f00;
 }
 
-.container .box span i:nth-child(2) {
+.containers .box span i:nth-child(2) {
     font-style: initial;
     color: #000;
 }
 
-.container .box span i:nth-child(3) {
+.containers .box span i:nth-child(3) {
     font-style: initial;
     color: #07770dcc;
 }
